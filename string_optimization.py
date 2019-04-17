@@ -28,8 +28,8 @@ def hillclimb_optimize(rand_sol, fitness_function):
 
         for j in range(len(sol)):
             # One away in each direction
-            neighbors.append(sol[0:j] + chr(ord(sol[j]) + 1) + sol[j + 1:])
-            neighbors.append(sol[0:j] + chr(ord(sol[j]) + 1) + sol[j + 1:])
+            neighbors.append(sol[0:j] + min('z',chr(ord(sol[j]) + 1)) + sol[j + 1:])
+            neighbors.append(sol[0:j] + max('A',chr(ord(sol[j]) - 1)) + sol[j + 1:])
 
         # See what the best solution amongst the neighbors is
         current_score = fitness_function(sol)
